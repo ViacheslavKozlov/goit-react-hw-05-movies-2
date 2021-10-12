@@ -17,8 +17,12 @@ const Home = () => {
 
   useEffect(() => {
     const get = async () => {
-      const { results } = await getTrendingMovies();
-      setMovies(results);
+      try {
+        const { results } = await getTrendingMovies();
+        setMovies(results);
+      } catch (err) {
+        return alert(`this is the end`);
+      }
     };
     get();
   }, []);

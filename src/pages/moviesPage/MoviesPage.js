@@ -30,7 +30,7 @@ const MoviesPage = () => {
           setFoundedMovies(prevFoundedMovies => [...prevFoundedMovies, ...results]);
 
           if (searchLine.trim() === "" && foundedMovies.length === 0) {
-            return console.log(alert(`there r no movies under typed request`));
+            return alert(`there r no movies under typed request`);
           }
 
           if (page > 1)
@@ -39,7 +39,7 @@ const MoviesPage = () => {
               behavior: "smooth"
             });
         } catch (err) {
-          return console.log(alert(`this is the end`));
+          return alert(`this is the end`);
         }
       };
       get();

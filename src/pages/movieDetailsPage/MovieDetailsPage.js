@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy } from "react";
 import { Route, NavLink, useHistory, useLocation, useRouteMatch, useParams } from "react-router-dom";
-import Cast from "../../Components/movieCast/MovieCast";
-import Reviews from "../../Components/movieReviews/MovieReviews";
+// import Cast from "../../Components/movieCast/MovieCast";
+// import Reviews from "../../Components/movieReviews/MovieReviews";
 import { getMovieDetails } from "../../API/apiService";
 import PropTypes from "prop-types";
 import noPosts from "../../images/noPosts.jpg";
 import style from "./MovieDetailsPage.module.css";
+
+const Cast = lazy(() => import("../../Components/movieCast/MovieCast")); /* webpackChunkName: "Cast"  */
+const Reviews = lazy(() => import("../../Components/movieReviews/MovieReviews")); /* webpackChunkName: "Reviews"  */
 
 const MovieDetailsPage = () => {
   const [movie, setMovie] = useState(null);
