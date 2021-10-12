@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation, useHistory } from "react-router-dom";
-import slugify from "slugify";
+import { useLocation, useHistory } from "react-router-dom";
 import { getSearchMovies } from "../../API/apiService";
 import PropTypes from "prop-types";
-import noPosts from "../../images/noPosts.jpg";
 import style from "./MoviesPage.module.css";
 
-const createSlug = string =>
-  slugify(string, {
-    lower: true
-  });
+import MoviesPageContent from "../../Components/moviesPageContent/MoviesPageContent";
 
 const MoviesPage = () => {
   const [searchMovie, setSearchMovie] = useState("");
@@ -91,32 +86,7 @@ const MoviesPage = () => {
           Search
         </button>
       </form>
-      {foundedMovies && (
-        <ul className={style.list}>
-          {foundedMovies.map(({ id, title, poster_path }) => (
-            <li className={style.listItem} key={id}>
-              <Link
-                to={{
-                  pathname: `/movies/${createSlug(`${title} ${id}`)}`,
-                  state: {
-                    from: {
-                      location,
-                      lable: "back 2 movies"
-                    }
-                  }
-                }}
-              >
-                <img
-                  className={style.img}
-                  src={poster_path ? `https://image.tmdb.org/t/p/w300${poster_path}` : `${noPosts}`}
-                  alt={title}
-                />
-                <p className={style.itemTitle}>{title}</p>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
+      {foundedMovies && <MoviesPageContent foundedMovies={foundedMovies} />}
       {showButton && (
         <button className={style.loadMoreBtn} onClick={handleLoadMoreBtn}>
           More movies
@@ -127,9 +97,7 @@ const MoviesPage = () => {
 };
 
 MoviesPage.propTypes = {
-  id: PropTypes.number,
-  title: PropTypes.string,
-  poster_path: PropTypes.string,
+  foundedMovies: PropTypes.arrayOf(PropTypes.object),
   handleSubmit: PropTypes.func,
   handleInputChange: PropTypes.func,
   handleLoadMoreBtn: PropTypes.func

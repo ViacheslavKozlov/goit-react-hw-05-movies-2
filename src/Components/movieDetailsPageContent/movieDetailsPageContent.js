@@ -24,11 +24,10 @@ const MovieDetailsPageContent = ({ movie }) => {
       <button className={style.btn} type="button" onClick={goBack}>
         {location?.state?.from?.label ?? "Go back"}
       </button>
-
       <div className={style.movieWrapper}>
         <img
           className={style.img}
-          src={movie.poster_path ? `https://image.tmdb.org/t/p/w300${movie.poster_path}` : { noPosts }}
+          src={movie.poster_path ? `https://image.tmdb.org/t/p/w300${movie.poster_path}` : `${noPosts}`}
           alt={movie.title}
         />
         <div className={style.infoWrapper}>
