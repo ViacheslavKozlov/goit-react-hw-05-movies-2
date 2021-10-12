@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getTrendingMovies } from "../../API/apiService";
-import HomePageContent from "../../Components/homePage/HomePageContent";
+import HomePageContent from "../../Components/homePageContent/HomePageContent";
 import style from "./HomePage.module.css";
 
 const Home = () => {
