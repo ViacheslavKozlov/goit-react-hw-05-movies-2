@@ -1,14 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
-import slugify from "slugify";
 import PropTypes from "prop-types";
-
+import { createSlug } from "../../services/Services";
 import noPosts from "../../images/noPosts.jpg";
 import style from "../../pages/homePage/HomePage.module.css";
-
-const createSlug = string =>
-  slugify(string, {
-    lower: true
-  });
 
 const HomePageContent = ({ movies }) => {
   const location = useLocation();

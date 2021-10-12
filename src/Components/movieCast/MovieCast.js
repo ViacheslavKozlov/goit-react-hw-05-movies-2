@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { getMovieCast } from "../../API/apiService";
 import PropTypes from "prop-types";
+import { getMovieCast } from "../../API/apiService";
 import noPosts from "../../images/noPosts.jpg";
 import style from "./MovieCast.module.css";
 

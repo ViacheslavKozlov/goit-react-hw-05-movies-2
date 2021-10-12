@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
 import Spinner from "./loader/Loader";
-import MainNavigation from "./navigation/Navigation";
+import Navigation from "./navigation/Navigation";
 
 const HomePage = lazy(() => import("../pages/homePage/HomePage")); /* webpackChunkName: "HomePage"  */
 const MoviesPage = lazy(() => import("../pages/moviesPage/MoviesPage")); /* webpackChunkName: "MoviesPage"  */
@@ -13,7 +13,7 @@ const Page404 = lazy(() => import("../pages/404Page/404Page")); /* webpackChunkN
 const App = () => {
   return (
     <>
-      <MainNavigation />
+      <Navigation />
       <Suspense fallback={<Spinner />}>
         <Switch>
           <Route exact path="/">

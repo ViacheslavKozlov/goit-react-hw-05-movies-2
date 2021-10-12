@@ -1,7 +1,8 @@
 import { lazy } from "react";
 import { Route, NavLink, useHistory, useLocation, useRouteMatch, useParams } from "react-router-dom";
-import style from "./MovieDetailsPageContent.module.css";
+import { getId } from "../../services/Services";
 import noPosts from "../../images/noPosts.jpg";
+import style from "./MovieDetailsPageContent.module.css";
 
 const Cast = lazy(() => import("../movieCast/MovieCast")); /* webpackChunkName: "Cast"  */
 const Reviews = lazy(() => import("../movieReviews/MovieReviews")); /* webpackChunkName: "Reviews"  */
@@ -12,7 +13,6 @@ const MovieDetailsPageContent = ({ movie }) => {
   const { url } = useRouteMatch();
   const { slug } = useParams();
 
-  const getId = line => line.match(/[a-z0-9]+$/)[0];
   const movieId = getId(slug);
 
   const goBack = () => {

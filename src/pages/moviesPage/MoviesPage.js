@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useHistory } from "react-router-dom";
-import { getSearchMovies } from "../../API/apiService";
 import PropTypes from "prop-types";
-import style from "./MoviesPage.module.css";
-
+import { getSearchMovies } from "../../API/apiService";
 import MoviesPageContent from "../../Components/moviesPageContent/MoviesPageContent";
+import style from "./MoviesPage.module.css";
 
 const MoviesPage = () => {
   const [searchMovie, setSearchMovie] = useState("");
   const [foundedMovies, setFoundedMovies] = useState([]);
   const [page, setPage] = useState(1);
-
   const location = useLocation();
   const history = useHistory();
 
