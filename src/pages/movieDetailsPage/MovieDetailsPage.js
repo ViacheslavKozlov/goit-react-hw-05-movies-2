@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory, useLocation, useParams } from "react-router-dom";
 import { getMovieDetails } from "../../API/apiService";
 import { getId } from "../../services/Services";
-import MovieDetailsPageContent from "../../Components/movieDetailsPageContent/MovieDetailsPageContent";
+import MovieDetailsPageContent from "../../Components/movieDetailsPageContent/MovieDetailsPageContent.js";
 
 const MovieDetailsPage = () => {
   const [movie, setMovie] = useState(null);
