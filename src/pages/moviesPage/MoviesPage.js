@@ -49,7 +49,6 @@ const MoviesPage = () => {
     if (!normilizedInput) return;
     try {
       const { results } = await getSearchMovies(normilizedInput);
-      // console.log(results);
       setFoundedMovies([]);
       setSearchMovie("");
 

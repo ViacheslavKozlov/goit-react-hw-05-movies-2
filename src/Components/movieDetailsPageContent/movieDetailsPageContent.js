@@ -1,10 +1,10 @@
 import { lazy } from "react";
 import { Route, NavLink, useHistory, useLocation, useRouteMatch, useParams } from "react-router-dom";
-import style from "../../pages/movieDetailsPage/MovieDetailsPage";
+import style from "./MovieDetailsPageContent.module.css";
 import noPosts from "../../images/noPosts.jpg";
 
-const Cast = lazy(() => import("../../Components/movieCast/MovieCast")); /* webpackChunkName: "Cast"  */
-const Reviews = lazy(() => import("../../Components/movieReviews/MovieReviews")); /* webpackChunkName: "Reviews"  */
+const Cast = lazy(() => import("../movieCast/MovieCast")); /* webpackChunkName: "Cast"  */
+const Reviews = lazy(() => import("../movieReviews/MovieReviews")); /* webpackChunkName: "Reviews"  */
 
 const MovieDetailsPageContent = ({ movie }) => {
   const history = useHistory();

@@ -3,7 +3,7 @@ import slugify from "slugify";
 import PropTypes from "prop-types";
 
 import noPosts from "../../images/noPosts.jpg";
-import style from "../../pages/homePage/HomePage";
+import style from "../../pages/homePage/HomePage.module.css";
 
 const createSlug = string =>
   slugify(string, {

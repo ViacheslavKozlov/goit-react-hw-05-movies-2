@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import slugify from "slugify";
 import PropTypes from "prop-types";
 import noPosts from "../../images/noPosts.jpg";
-import style from "../../pages/moviesPage/MoviesPage";
+import style from "../../pages/moviesPage/MoviesPage.module.css";
 
 const MoviesPageContent = ({ foundedMovies }) => {
   const location = useLocation();
