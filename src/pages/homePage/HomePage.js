@@ -1,19 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import slugify from "slugify";
 import { getTrendingMovies } from "../../API/apiService";
-import noPosts from "../../images/noPosts.jpg";
+import HomePageContent from "../../Components/homePage/HomePageContent";
 import style from "./HomePage.module.css";
-
-const createSlug = string =>
-  slugify(string, {
-    lower: true
-  });
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
-
-  const location = useLocation();
 
   useEffect(() => {
     const get = async () => {
@@ -30,7 +21,8 @@ const Home = () => {
   return (
     <section>
       <h3 className={style.headline}>Trends</h3>
-      <ul className={style.list}>
+      {movies && <HomePageContent movies={movies} />}
+      {/* <ul className={style.list}>
         {movies.map(({ id, title, poster_path }) => (
           <li className={style.listItem} key={id}>
             <Link
@@ -49,7 +41,7 @@ const Home = () => {
             </Link>
           </li>
         ))}
-      </ul>
+      </ul> */}
     </section>
   );
 };
